@@ -20,7 +20,11 @@ interface RunProgressState {
  * @param id the run id of the generateFunctionDocs task
  */
 export function useProgressRun(id?: string) {
-  const { run, error } = useRealtimeRun(id);
+  const { run, error } = useRealtimeRun(id, {
+    onComplete: () => {
+      console.log("hey!, the run has been completed");
+    },
+  });
 
   const status: RunProgressState = {
     state: run?.status ?? "QUEUED",
