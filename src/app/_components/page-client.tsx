@@ -23,8 +23,10 @@ export default function PageClient({ runId }: { runId: string }) {
         {run && status && (
           <CardContent className="py-6">
             <p className="mb-4 leading-relaxed">
-              See in network tab from devtools, the realtime request never stop,
-              even tasks is completed.
+              The <pre className="italic inline-block">onComplete</pre> callback
+              is never called from{" "}
+              <pre className="italic inline-block">useProgressRun</pre>, even
+              when run is completed.
             </p>
             <div className="text-sm mb-1 gap-1 flex">
               <span>State:</span>
